@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>GuideMe AI | Твой путь</title>
 
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <div class="app-overlay">
+        <header class="ai-header">
+            <div class="status-indicator"><div class="pulse"></div></div>
+            <div class="text-container">
+                <h1 id="ai-status">GuideMe: Слушаю...</h1>
+            </div>
+        </header>
+
+        <main class="vision-container">
+            <video id="video" autoplay playsinline muted></video>
+            <div class="scan-line"></div>
+        </main>
+
+        <footer class="controls-panel">
+            <button id="btn-ai" class="main-btn yellow" aria-label="Голосовой ввод">
+                <i class="material-icons">mic</i>
+                <span>КУДА ИДЕМ?</span>
+            </button>
+            <button id="btn-sos" class="main-btn red" aria-label="Экстренная помощь">
+                <i class="material-icons">emergency</i>
+                <span>SOS</span>
+            </button>
+        </footer>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places,geometry&language=ru"></script>
+    <script src="script.js"></script>
+</body>
+</html>
