@@ -1,64 +1,528 @@
-relevant.forEach((p) => {
-    if (!strongest ⠺⠺⠟⠟⠞⠞⠟⠵⠞⠺⠟⠵⠵⠟⠟⠟⠵⠟⠵⠺⠺⠞⠞⠵⠟⠟⠵⠺⠞⠺⠞⠵⠵⠞⠟⠺⠵⠞⠵⠞⠵⠵⠟⠺⠟⠺⠟⠞⠞⠺⠺⠺⠞⠺⠵⠟⠞⠞⠟⠵⠺⠟⠟⠟⠵⠟⠞⠵⠵⠟⠺⠵⠵⠺⠞⠺⠟⠟⠞⠵⠺⠟⠞⠵⠞⠟⠵⠺⠵⠟⠵⠵⠵⠵⠵⠺⠟⠟⠟⠵⠺⠟⠟⠵⠵⠟⠟⠟⠺⠟⠵⠞⠞⠵⠞⠞⠞⠺⠟⠵⠟⠟⠟⠞⠵⠟⠵⠵⠺⠞⠟⠟⠵⠺⠟⠟⠞⠵⠵⠞⠵⠺⠟⠟⠵⠵⠺⠵⠺⠟⠞⠟⠺⠺⠺⠺⠵⠺⠟⠞⠵⠵⠞⠟⠵⠺⠺⠵⠞⠺⠞⠺⠞⠵⠟⠞⠵⠺⠺⠵⠺⠵⠺⠞⠵⠞⠟⠺⠟⠞⠞⠞⠟⠵⠺⠞⠞⠵⠞⠺⠺⠺ p.class === "truck" ⠞⠞⠞⠺⠵⠺⠺⠟⠟⠟⠵⠵⠞⠟⠺⠞⠺⠟⠞⠞⠵⠺⠺⠟⠵⠟⠞⠟⠟⠵⠵⠟⠺⠵⠵⠺⠺⠟⠟⠟⠞⠺⠟⠺⠺⠺⠵⠺⠺⠞⠟⠞⠞⠵⠵⠞⠵⠟⠺⠟⠺⠞⠺⠞⠺⠟⠞⠺⠵⠟⠞⠺⠟⠺⠟⠵⠵⠵⠟⠞⠵⠵⠟⠟⠞⠺⠞⠟⠵⠺⠺⠟⠺⠟⠺⠞⠵⠺⠟⠞⠞⠞⠟⠵⠺⠺⠵⠵⠞⠵⠺⠞⠟⠺⠞⠺⠞⠺⠟⠞⠺⠺⠺⠺⠟⠺⠞⠞⠞⠵⠵⠺⠺⠞⠞⠺⠵⠞⠟⠟⠺⠞⠞⠞⠞⠺⠟⠟⠵⠟⠺⠵⠺⠞⠺⠵⠞⠺⠟⠵⠺⠞⠺⠟⠟⠞⠺⠺⠵⠟⠵⠞⠵⠺⠵⠺⠵⠺⠵⠺⠵⠟⠟⠞⠺⠵⠺⠺⠺⠞⠟⠵⠺⠺⠵⠵⠵⠟⠺⠞⠞⠞⠵⠞⠟⠟⠵⠺⠟⠟⠟⠺⠞⠞⠵⠟⠺⠵⠟⠺⠞⠟⠵⠵⠞⠟⠞⠵⠵⠞⠞⠞⠺⠵⠟⠟⠺⠺⠞⠵⠺⠺⠺⠞⠵⠟⠵⠟⠞⠞⠵⠺⠺⠟⠵⠞⠵⠞⠺⠟⠺⠵⠟⠟⠺⠵⠟⠞⠟⠺⠵⠞⠟⠵⠞⠵⠵⠺⠞⠵⠞⠟⠞⠺⠺⠵⠞⠟⠺⠺⠟⠺⠵⠵⠞⠟⠟⠺⠺⠺⠵⠞⠞⠺⠺⠟⠺⠞⠵⠞⠵⠵⠟⠺⠵⠟⠺⠞⠺⠵⠟⠵⠟⠺⠟⠺⠞⠟⠺⠺⠟⠺⠺⠟⠵⠵⠟⠞⠵⠟⠺⠺⠟⠵⠺⠟⠞⠵⠵⠵⠺⠺⠞⠵⠟⠺⠺⠵⠵⠞⠟⠵⠺⠺⠵⠟⠞⠟⠵⠞⠟⠟⠺⠺⠵⠞⠺⠺⠵⠺⠺⠟⠟⠵⠞⠵⠺⠺⠺⠺⠞⠺⠵⠵⠺⠵⠵⠺⠞⠺⠞⠺⠵⠵⠺⠟⠟⠺⠟⠺⠟⠟⠞⠟⠟⠵⠺⠺⠺⠞⠞⠵⠺⠟⠞⠵⠟⠵⠵⠺⠟⠞⠺⠵⠺⠺⠟⠞⠵⠞⠞⠵⠵⠵⠞⠟⠵⠞⠺⠞⠵⠺⠟⠺⠺⠟⠵⠟⠞⠵⠞⠟⠞⠺⠞⠵⠺⠺⠟⠞⠞⠞⠵⠵⠞⠵⠞⠟⠺⠵⠺⠞⠺⠺⠺⠵⠞⠵⠞⠞⠺⠟⠵⠵⠞⠵⠟⠞⠺⠞⠟⠟⠵⠟⠺⠺⠵⠺⠵⠞⠵⠵⠵⠟⠟⠺⠺⠵⠟⠵⠟⠟⠺⠟⠞⠵⠵⠞⠟⠺⠞⠵⠺⠞⠞⠺⠟⠟⠞⠞⠵⠵⠵⠟⠺⠵⠟⠟⠞⠺⠵⠵⠺⠟⠺⠞⠵⠟⠟⠟⠺⠟⠞⠞⠺⠺⠵⠵⠺⠵⠺⠵⠞⠵⠞⠺⠟⠵⠞⠞⠵⠺⠺⠟⠵⠞⠵⠞⠞⠵⠟⠞⠞⠺⠵⠵⠵⠺⠟⠵⠵⠵⠵⠞⠺⠵⠺⠺⠟⠵⠟⠺⠞⠵⠞⠟⠵⠵⠟⠞⠺⠺⠵⠟⠞⠟⠞⠺⠵⠞⠵⠞⠟⠞⠵⠞⠵⠞⠵⠺⠺⠵⠺⠞⠞⠵⠞⠺⠺⠺⠵⠵⠵⠵⠵⠟⠺⠵⠞⠵⠺⠟⠵⠞⠟⠺⠺⠵⠺⠞⠞⠞⠺⠵⠞⠟⠞⠞⠵⠞⠺⠟⠺⠟⠵⠟⠺⠞⠺⠞⠺⠵⠵⠺⠺⠵⠞⠟⠺⠵⠞⠟⠟⠵⠟⠟⠺⠺⠺⠞⠞⠟⠞⠞⠺⠺⠟⠞⠞⠵⠵⠞⠞⠵⠞⠞⠞⠞⠺⠞⠞⠺⠺⠵⠟⠵⠟⠟⠵⠺⠵⠟⠞⠞⠵⠺⠞⠺⠵⠞⠟⠵⠺⠞⠵⠟⠺⠵⠞⠞⠺⠺⠞⠵⠟⠵⠟⠵⠵⠟⠞⠵⠵⠺⠺⠺⠵⠞⠞⠞⠺⠺⠞⠺⠞⠟⠺⠞⠟⠺⠺⠵⠵⠞⠵⠟⠞⠟⠵⠺⠞⠵⠞⠞⠵⠞⠞⠞⠵⠺⠺⠺⠟⠺⠺⠺⠺⠟⠺⠞⠞⠺⠵⠞⠵⠟⠺⠟⠟⠺⠺⠺⠟⠟⠺⠺⠞⠞⠞⠟⠵⠺⠞⠞⠟⠞⠵⠞⠺⠟⠞⠺⠺⠵⠺⠺⠟⠞⠟⠞⠟⠺⠟⠟⠺⠺⠵⠟⠺⠺⠺⠟⠵⠟⠟⠞⠞⠞⠵⠵⠺⠵⠵⠟⠞⠞⠵⠺⠺⠞⠟⠟⠵⠞⠵⠟⠟⠞⠟⠵⠞⠞⠟⠞⠟⠞⠟⠺⠺⠟⠟⠵⠺⠞⠞⠵⠵⠺⠟⠟⠵⠺⠵⠟⠟⠺⠵⠵⠵⠟⠞⠟⠵⠺⠟⠺⠵⠺⠟⠞⠵⠺⠟⠵⠞⠺⠺⠺⠞⠟⠺⠞⠵⠟⠟⠟⠺⠞⠺⠵⠵⠺⠞⠟⠵⠵⠞⠞⠺⠟⠞⠺⠞⠵⠺⠞⠵⠟⠺⠺⠟⠞⠞⠵⠟⠺⠺⠺⠵⠞⠟⠟⠺⠟⠵⠟⠟⠞⠺⠺⠵⠺⠺⠞⠺⠞⠵⠟⠵⠵⠺⠞⠵⠞⠞⠞⠞⠟⠞⠵⠵⠺⠺⠞⠺⠟⠵⠵⠟⠞⠺⠞⠟⠺⠟⠵⠺⠺⠟⠺⠞⠟⠟⠟⠟⠺⠟⠵⠞⠵⠟⠟⠵⠵⠵⠞⠺⠺⠟⠞⠟⠺⠵⠟⠟⠟⠞⠵⠞⠟⠺⠞⠟⠵⠟⠺⠞⠵⠵⠺⠟⠟⠟⠟⠞⠵⠵⠺⠵⠵⠵⠞⠺⠟⠞⠟⠵⠟⠟⠵⠺⠟⠞⠟⠞⠵⠵⠺⠟⠺⠞⠺⠟⠞⠺⠞⠵⠟⠞⠺⠵ className;
+:root {
+  --bg: #08111f;
+  --panel: rgba(13, 24, 44, 0.84);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #f4f7fb;
+  --muted: #b8c6db;
+  --primary: #6ee7ff;
+  --primary-dark: #2ac6f0;
+  --accent: #8b5cf6;
+  --green: #3ddc97;
+  --blue: #5ca8ff;
+  --danger: #ff6b7a;
+  --warning: #ffbf5f;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --container: 1180px;
 }
 
-async function recognizeBusNumber() {
-  if (!els.camera.videoWidth) {
-    setAlert("Сначала включите камеру.", "warning");
-    return;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(108, 92, 231, 0.15), transparent 25%),
+    radial-gradient(circle at top right, rgba(46, 213, 255, 0.12), transparent 25%),
+    linear-gradient(180deg, #06101c 0%, #08111f 100%);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body.high-contrast {
+  --bg: #000000;
+  --panel: #0b0b0b;
+  --panel-border: #ffffff;
+  --text: #ffffff;
+  --muted: #f3f3f3;
+  --primary: #ffe600;
+  --primary-dark: #ffd000;
+  --accent: #00ffff;
+  --green: #00ff99;
+  --blue: #00b7ff;
+  --danger: #ff4545;
+  --warning: #ffb400;
+}
+
+body.large-text {
+  font-size: 18px;
+}
+
+.bg-orb {
+  position: fixed;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.orb-1 {
+  top: -100px;
+  left: -80px;
+  background: #2fdcff;
+}
+
+.orb-2 {
+  right: -100px;
+  top: 160px;
+  background: #8b5cf6;
+}
+
+.hero,
+.container,
+.footer {
+  width: min(var(--container), calc(100% - 24px));
+  margin-inline: auto;
+}
+
+.hero {
+  padding: 36px 0 18px;
+}
+
+.hero__badge {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--primary);
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.7rem, 7vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.hero__subtitle {
+  max-width: 850px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin: 18px 0 22px;
+}
+
+.hero__actions,
+.controls,
+.route-form__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.status-grid,
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.status-card,
+.feature-card,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.status-card {
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.status-card__label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+}
+
+.status-card strong {
+  font-size: 1rem;
+}
+
+.container {
+  display: grid;
+  gap: 18px;
+  padding-bottom: 32px;
+}
+
+.panel {
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.panel__head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.panel__head h2 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.panel__head p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.pill {
+  white-space: nowrap;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(110, 231, 255, 0.12);
+  color: var(--primary);
+  border: 1px solid rgba(110, 231, 255, 0.22);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.pill--green {
+  color: var(--green);
+  background: rgba(61, 220, 151, 0.12);
+  border-color: rgba(61, 220, 151, 0.22);
+}
+
+.pill--blue {
+  color: var(--blue);
+  background: rgba(92, 168, 255, 0.12);
+  border-color: rgba(92, 168, 255, 0.22);
+}
+
+.pill--purple {
+  color: #d1b4ff;
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.22);
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  padding: 14px 18px;
+  border-radius: 16px;
+  font-weight: 800;
+  font-family: inherit;
+  transition: 0.2s ease;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+}
+.btn--primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #03141a;
+  border: none;
+}
+
+.btn--primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+}
+
+.camera-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #02060b;
+  border: 1px solid var(--panel-border);
+  margin-bottom: 16px;
+}
+
+#camera,
+#overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#camera {
+  object-fit: cover;
+  background: #000;
+}
+
+#overlay {
+  pointer-events: none;
+}
+
+.camera-hud {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  z-index: 3;
+}
+
+.camera-hud__item {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.92rem;
+}
+
+.alert-box,
+.route-summary,
+.bus-status {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+  line-height: 1.6;
+}
+
+.route-form {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.input-wrap {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-wrap span {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+input {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #9db0c9;
+}
+
+#map {
+  width: 100%;
+  height: 420px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--panel-border);
+}
+
+.steps {
+  margin: 16px 0 0;
+  padding-left: 22px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.steps li {
+  margin-bottom: 10px;
+}
+
+.features-grid {
+  margin-top: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.feature-card {
+  border-radius: 22px;
+  padding: 20px;
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.feature-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.bus-box {
+  display: grid;
+  gap: 14px;
+}
+
+.progress {
+  width: 100%;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  border: 1px solid var(--panel-border);
+}
+
+.progress__bar {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), var(--primary));
+  transition: width 0.5s ease;
+}
+
+.footer {
+  padding: 10px 0 34px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.leaflet-control-container .leaflet-routing-container-hide {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .status-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  setAlert("Идёт распознавание номера автобуса...", "normal");
-  speak("Пробую считать номер автобуса.");
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
-  try {
-    const tempCanvas = document.createElement("canvas");
-    const ctx = tempCanvas.getContext("2d");
-    tempCanvas.width = els.camera.videoWidth;
-    tempCanvas.height = els.camera.videoHeight;
-    ctx.drawImage(els.camera, 0, 0, tempCanvas.width, tempCanvas.height);
-
-    const result = await Tesseract.recognize(tempCanvas, "eng", {
-      logger: () => {},
-    });
-
-    const text = (result.data.text ⠟⠞⠟⠟⠞⠺⠟⠟⠵⠵⠟⠵⠵⠵⠟⠵⠵⠞⠞⠵⠞⠞⠺⠵⠵⠺⠵⠟⠟⠟⠟⠟⠟⠞⠟⠟⠞⠺⠵⠵⠟⠺⠵⠟⠵⠟⠞⠟⠺⠺⠺⠵⠟⠞⠵⠺⠞⠟⠺⠟⠺⠺⠺⠟⠟⠟⠵⠞⠺⠺⠟⠟⠺⠞⠟⠟⠵⠞⠞⠵⠵⠞⠞⠟⠺⠵⠟⠺⠵⠟⠟⠵⠟⠺⠟⠵⠟⠟⠺⠵⠵⠵⠺⠟⠟⠵⠺⠟⠞⠟⠵⠵⠞⠟⠟⠟⠺⠞⠞⠞⠺⠵⠞⠺⠺⠞⠟⠟⠟⠟⠞⠺⠟⠟⠞⠟⠞⠺⠟⠵⠞⠺⠵⠟⠞⠺⠞⠺⠟⠺⠟⠟⠟⠞⠟⠵⠺⠵⠟⠺⠟⠵⠟⠞⠺⠞⠟⠺⠵⠞⠵⠟⠟⠞⠞⠞⠺⠟⠵⠺⠵⠵⠞⠺⠺⠵⠺⠞⠟⠺⠵⠺⠟⠵⠵⠺⠞⠞⠵⠟⠵⠵⠵⠞⠵⠵⠟⠵⠵⠟⠺⠟⠺⠺⠺⠺⠞⠟⠺⠵⠞⠞⠞⠟⠟⠟⠺⠵⠺⠵⠵⠞⠞⠺⠵⠺⠵⠵⠵⠺⠵⠵⠺⠺⠵⠵⠵⠵⠵⠞⠟⠵⠟⠟⠺⠺⠺⠟⠟⠵⠟⠺⠟⠵⠵⠞⠟⠟⠟⠵⠟⠺⠺⠞⠵⠞⠟⠞⠞⠞⠵⠵⠺⠵⠟⠺⠵⠞⠵⠟⠞⠺⠞⠺⠵⠺⠞⠟⠵⠺⠵⠵⠵⠞⠞⠞⠟⠺⠵⠞⠵⠺⠺⠺⠵⠞⠟⠺⠟⠞⠞⠞⠞⠵⠵⠟⠟⠵⠺⠟⠞⠟⠺⠵⠟⠺⠞⠟⠞⠟⠟⠞⠺⠟⠵⠵⠟⠵⠺⠵⠟⠞⠵⠟⠵⠞⠟⠵⠟⠞⠞⠟⠟⠞⠞⠟⠵⠵⠵⠞⠺⠟⠟⠞⠞⠞⠺⠵⠵⠺⠞⠺⠵⠵⠞⠟⠞⠞⠺⠵⠺⠞⠵⠺⠺⠟⠞⠞⠟⠺⠞⠵⠞⠺⠵⠞⠺⠟⠵⠟⠟⠺⠺⠵⠞⠵⠵⠞⠵⠺⠞⠵⠟⠟⠞⠵⠟⠞⠺⠟⠞⠵⠟⠵⠺⠞⠵⠺⠺⠵⠟⠵⠺⠵⠵⠺⠺⠵⠞⠺⠵⠺⠟⠵⠺⠟⠺⠞⠟⠟⠟⠟⠵⠟⠵⠞⠟⠺⠺⠺⠞⠞⠵⠵⠞⠞⠺⠵⠵⠟⠵⠵⠺⠵⠟⠵⠵⠞⠟⠺⠟⠺⠟⠞⠞⠞⠵⠵⠺⠵⠵⠞⠞⠟⠺⠞⠟⠺⠟⠟⠺⠞⠞⠞⠵⠵⠞⠟⠞⠟⠺⠟⠞⠺⠞⠺⠞⠞⠵⠟⠞⠵⠟⠵⠵⠵⠟⠵⠺⠟⠺⠟⠺⠟⠵⠟⠺⠟⠞⠞⠺⠟⠞⠵⠺⠞⠞⠞⠺⠞⠟⠵⠺⠞⠞⠺⠺⠞⠺⠟⠟⠞⠵⠟⠞⠺⠺⠟⠟⠵⠞⠵⠟⠵⠵⠟⠵⠟⠞⠞⠵⠞⠵⠺⠵⠞⠟⠟⠺⠵⠺⠞⠟⠟⠟⠵⠞⠟⠟⠞⠵⠺⠞⠞⠞⠺⠵⠟ window.webkitSpeechRecognition;
-
-  if (!SpeechRecognition) {
-    setAlert("Голосовой ввод не поддерживается в этом браузере.", "warning");
-    speak("Голосовой ввод не поддерживается.");
-    return;
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 24px;
   }
 
-  const recognition = new SpeechRecognition();
-  recognition.lang = "ru-RU";
-  recognition.interimResults = false;
-  recognition.maxAlternatives = 1;
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
 
-  setAlert("Слушаю вас...", "normal");
-  recognition.start();
+  .panel {
+    padding: 18px;
+  }
 
-  recognition.onresult = (event) => {
-    const text = event.results[0][0].transcript;
-    els.destinationInput.value = text;
-    setAlert(Вы сказали: ${text}, "success");
-    speak(Принято. Пункт назначения: ${text});
-  };
+  #map {
+    height: 320px;
+  }
 
-  recognition.onerror = () => {
-    setAlert("Не удалось распознать голос.", "warning");
-  };
+  .panel__head {
+    flex-direction: column;
+  }
+
+  .camera-wrap {
+    aspect-ratio: 4 / 5;
+  }
+}
+const app = {
+  map: null,
+  currentMarker: null,
+  destinationMarker: null,
+  routeLine: null,
+  currentPosition: [42.8746, 74.5698], // Bishkek
+  voiceEnabled: true,
+  highContrast: false,
+  largeText: false,
+  cameraStream: null,
+  model: null,
+  lastAlerts: {},
+  busProgress: 0,
+  busTimer: null,
+};
+
+const els = {
+  aiStatus: document.getElementById("aiStatus"),
+  gpsStatus: document.getElementById("gpsStatus"),
+  voiceStatus: document.getElementById("voiceStatus"),
+  accessStatus: document.getElementById("accessStatus"),
+
+  startGuideBtn: document.getElementById("startGuideBtn"),
+  speakAboutBtn: document.getElementById("speakAboutBtn"),
+
+  camera: document.getElementById("camera"),
+  overlay: document.getElementById("overlay"),
+  alertBox: document.getElementById("alertBox"),
+  cameraModeText: document.getElementById("cameraModeText"),
+
+  startCameraBtn: document.getElementById("startCameraBtn"),
+  detectBtn: document.getElementById("detectBtn"),
+  ocrBtn: document.getElementById("ocrBtn"),
+  demoHazardBtn: document.getElementById("demoHazardBtn"),
+
+  destinationInput: document.getElementById("destinationInput"),
+  voiceInputBtn: document.getElementById("voiceInputBtn"),
+  buildRouteBtn: document.getElementById("buildRouteBtn"),
+  routeSummary: document.getElementById("routeSummary"),
+  routeSteps: document.getElementById("routeSteps"),
+
+  busNumberInput: document.getElementById("busNumberInput"),
+  simulateBusBtn: document.getElementById("simulateBusBtn"),
+  nextStopBtn: document.getElementById("nextStopBtn"),
+  busProgress: document.getElementById("busProgress"),
+  busStatus: document.getElementById("busStatus"),
+
+  toggleVoiceBtn: document.getElementById("toggleVoiceBtn"),
+  toggleContrastBtn: document.getElementById("toggleContrastBtn"),
+  toggleTextBtn: document.getElementById("toggleTextBtn"),
+};
+
+function speak(text, urgent = false) {
+  if (!app.voiceEnabled  !("speechSynthesis" in window)) return;
+
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "ru-RU";
+  utterance.rate = urgent ? 1.02 : 0.96;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+  window.speechSynthesis.speak(utterance);
 }
 
-function toggleVoice() {
-  app.voiceEnabled = !app.voiceEnabled;
-  updateText(els.voiceStatus, app.voiceEnabled ? "Включен" : "Выключен");
-  setAlert(Голосовой режим ${app.voiceEnabled ? "включён" : "выключен"}., "success");
+function updateText(el, text) {
+  if (el) el.textContent = text;
 }
 
-function toggleContrast() {
-  app.highContrast = !app.highContrast;
-  document.body.classList.toggle("high-contrast", app.highContrast);
-  updateText(els.accessStatus, app.highContrast ? "Высокий контраст" : "Стандартный");
-  speak(app.highContrast ? "Высокий контраст включён." : "Высокий контраст выключен.");
+function setAlert(message, tone = "normal") {
+  const tones = {
+    normal: "GuideMe: ",
+    warning: "Внимание: ",
+    danger: "Опасность: ",
+    success: "Готово: ",
+  };
+
+  els.alertBox.textContent = `${tones[tone]  ""}${message}`;
 }
