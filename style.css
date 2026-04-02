@@ -1,65 +1,64 @@
-:root {
-    --black: #050505;
-    --yellow: #FFD700;
-    --red: #FF3B30;
-    --green: #4CD964;
-    --blue: #007AFF;
+relevant.forEach((p) => {
+    if (!strongest ⠺⠺⠟⠟⠞⠞⠟⠵⠞⠺⠟⠵⠵⠟⠟⠟⠵⠟⠵⠺⠺⠞⠞⠵⠟⠟⠵⠺⠞⠺⠞⠵⠵⠞⠟⠺⠵⠞⠵⠞⠵⠵⠟⠺⠟⠺⠟⠞⠞⠺⠺⠺⠞⠺⠵⠟⠞⠞⠟⠵⠺⠟⠟⠟⠵⠟⠞⠵⠵⠟⠺⠵⠵⠺⠞⠺⠟⠟⠞⠵⠺⠟⠞⠵⠞⠟⠵⠺⠵⠟⠵⠵⠵⠵⠵⠺⠟⠟⠟⠵⠺⠟⠟⠵⠵⠟⠟⠟⠺⠟⠵⠞⠞⠵⠞⠞⠞⠺⠟⠵⠟⠟⠟⠞⠵⠟⠵⠵⠺⠞⠟⠟⠵⠺⠟⠟⠞⠵⠵⠞⠵⠺⠟⠟⠵⠵⠺⠵⠺⠟⠞⠟⠺⠺⠺⠺⠵⠺⠟⠞⠵⠵⠞⠟⠵⠺⠺⠵⠞⠺⠞⠺⠞⠵⠟⠞⠵⠺⠺⠵⠺⠵⠺⠞⠵⠞⠟⠺⠟⠞⠞⠞⠟⠵⠺⠞⠞⠵⠞⠺⠺⠺ p.class === "truck" ⠞⠞⠞⠺⠵⠺⠺⠟⠟⠟⠵⠵⠞⠟⠺⠞⠺⠟⠞⠞⠵⠺⠺⠟⠵⠟⠞⠟⠟⠵⠵⠟⠺⠵⠵⠺⠺⠟⠟⠟⠞⠺⠟⠺⠺⠺⠵⠺⠺⠞⠟⠞⠞⠵⠵⠞⠵⠟⠺⠟⠺⠞⠺⠞⠺⠟⠞⠺⠵⠟⠞⠺⠟⠺⠟⠵⠵⠵⠟⠞⠵⠵⠟⠟⠞⠺⠞⠟⠵⠺⠺⠟⠺⠟⠺⠞⠵⠺⠟⠞⠞⠞⠟⠵⠺⠺⠵⠵⠞⠵⠺⠞⠟⠺⠞⠺⠞⠺⠟⠞⠺⠺⠺⠺⠟⠺⠞⠞⠞⠵⠵⠺⠺⠞⠞⠺⠵⠞⠟⠟⠺⠞⠞⠞⠞⠺⠟⠟⠵⠟⠺⠵⠺⠞⠺⠵⠞⠺⠟⠵⠺⠞⠺⠟⠟⠞⠺⠺⠵⠟⠵⠞⠵⠺⠵⠺⠵⠺⠵⠺⠵⠟⠟⠞⠺⠵⠺⠺⠺⠞⠟⠵⠺⠺⠵⠵⠵⠟⠺⠞⠞⠞⠵⠞⠟⠟⠵⠺⠟⠟⠟⠺⠞⠞⠵⠟⠺⠵⠟⠺⠞⠟⠵⠵⠞⠟⠞⠵⠵⠞⠞⠞⠺⠵⠟⠟⠺⠺⠞⠵⠺⠺⠺⠞⠵⠟⠵⠟⠞⠞⠵⠺⠺⠟⠵⠞⠵⠞⠺⠟⠺⠵⠟⠟⠺⠵⠟⠞⠟⠺⠵⠞⠟⠵⠞⠵⠵⠺⠞⠵⠞⠟⠞⠺⠺⠵⠞⠟⠺⠺⠟⠺⠵⠵⠞⠟⠟⠺⠺⠺⠵⠞⠞⠺⠺⠟⠺⠞⠵⠞⠵⠵⠟⠺⠵⠟⠺⠞⠺⠵⠟⠵⠟⠺⠟⠺⠞⠟⠺⠺⠟⠺⠺⠟⠵⠵⠟⠞⠵⠟⠺⠺⠟⠵⠺⠟⠞⠵⠵⠵⠺⠺⠞⠵⠟⠺⠺⠵⠵⠞⠟⠵⠺⠺⠵⠟⠞⠟⠵⠞⠟⠟⠺⠺⠵⠞⠺⠺⠵⠺⠺⠟⠟⠵⠞⠵⠺⠺⠺⠺⠞⠺⠵⠵⠺⠵⠵⠺⠞⠺⠞⠺⠵⠵⠺⠟⠟⠺⠟⠺⠟⠟⠞⠟⠟⠵⠺⠺⠺⠞⠞⠵⠺⠟⠞⠵⠟⠵⠵⠺⠟⠞⠺⠵⠺⠺⠟⠞⠵⠞⠞⠵⠵⠵⠞⠟⠵⠞⠺⠞⠵⠺⠟⠺⠺⠟⠵⠟⠞⠵⠞⠟⠞⠺⠞⠵⠺⠺⠟⠞⠞⠞⠵⠵⠞⠵⠞⠟⠺⠵⠺⠞⠺⠺⠺⠵⠞⠵⠞⠞⠺⠟⠵⠵⠞⠵⠟⠞⠺⠞⠟⠟⠵⠟⠺⠺⠵⠺⠵⠞⠵⠵⠵⠟⠟⠺⠺⠵⠟⠵⠟⠟⠺⠟⠞⠵⠵⠞⠟⠺⠞⠵⠺⠞⠞⠺⠟⠟⠞⠞⠵⠵⠵⠟⠺⠵⠟⠟⠞⠺⠵⠵⠺⠟⠺⠞⠵⠟⠟⠟⠺⠟⠞⠞⠺⠺⠵⠵⠺⠵⠺⠵⠞⠵⠞⠺⠟⠵⠞⠞⠵⠺⠺⠟⠵⠞⠵⠞⠞⠵⠟⠞⠞⠺⠵⠵⠵⠺⠟⠵⠵⠵⠵⠞⠺⠵⠺⠺⠟⠵⠟⠺⠞⠵⠞⠟⠵⠵⠟⠞⠺⠺⠵⠟⠞⠟⠞⠺⠵⠞⠵⠞⠟⠞⠵⠞⠵⠞⠵⠺⠺⠵⠺⠞⠞⠵⠞⠺⠺⠺⠵⠵⠵⠵⠵⠟⠺⠵⠞⠵⠺⠟⠵⠞⠟⠺⠺⠵⠺⠞⠞⠞⠺⠵⠞⠟⠞⠞⠵⠞⠺⠟⠺⠟⠵⠟⠺⠞⠺⠞⠺⠵⠵⠺⠺⠵⠞⠟⠺⠵⠞⠟⠟⠵⠟⠟⠺⠺⠺⠞⠞⠟⠞⠞⠺⠺⠟⠞⠞⠵⠵⠞⠞⠵⠞⠞⠞⠞⠺⠞⠞⠺⠺⠵⠟⠵⠟⠟⠵⠺⠵⠟⠞⠞⠵⠺⠞⠺⠵⠞⠟⠵⠺⠞⠵⠟⠺⠵⠞⠞⠺⠺⠞⠵⠟⠵⠟⠵⠵⠟⠞⠵⠵⠺⠺⠺⠵⠞⠞⠞⠺⠺⠞⠺⠞⠟⠺⠞⠟⠺⠺⠵⠵⠞⠵⠟⠞⠟⠵⠺⠞⠵⠞⠞⠵⠞⠞⠞⠵⠺⠺⠺⠟⠺⠺⠺⠺⠟⠺⠞⠞⠺⠵⠞⠵⠟⠺⠟⠟⠺⠺⠺⠟⠟⠺⠺⠞⠞⠞⠟⠵⠺⠞⠞⠟⠞⠵⠞⠺⠟⠞⠺⠺⠵⠺⠺⠟⠞⠟⠞⠟⠺⠟⠟⠺⠺⠵⠟⠺⠺⠺⠟⠵⠟⠟⠞⠞⠞⠵⠵⠺⠵⠵⠟⠞⠞⠵⠺⠺⠞⠟⠟⠵⠞⠵⠟⠟⠞⠟⠵⠞⠞⠟⠞⠟⠞⠟⠺⠺⠟⠟⠵⠺⠞⠞⠵⠵⠺⠟⠟⠵⠺⠵⠟⠟⠺⠵⠵⠵⠟⠞⠟⠵⠺⠟⠺⠵⠺⠟⠞⠵⠺⠟⠵⠞⠺⠺⠺⠞⠟⠺⠞⠵⠟⠟⠟⠺⠞⠺⠵⠵⠺⠞⠟⠵⠵⠞⠞⠺⠟⠞⠺⠞⠵⠺⠞⠵⠟⠺⠺⠟⠞⠞⠵⠟⠺⠺⠺⠵⠞⠟⠟⠺⠟⠵⠟⠟⠞⠺⠺⠵⠺⠺⠞⠺⠞⠵⠟⠵⠵⠺⠞⠵⠞⠞⠞⠞⠟⠞⠵⠵⠺⠺⠞⠺⠟⠵⠵⠟⠞⠺⠞⠟⠺⠟⠵⠺⠺⠟⠺⠞⠟⠟⠟⠟⠺⠟⠵⠞⠵⠟⠟⠵⠵⠵⠞⠺⠺⠟⠞⠟⠺⠵⠟⠟⠟⠞⠵⠞⠟⠺⠞⠟⠵⠟⠺⠞⠵⠵⠺⠟⠟⠟⠟⠞⠵⠵⠺⠵⠵⠵⠞⠺⠟⠞⠟⠵⠟⠟⠵⠺⠟⠞⠟⠞⠵⠵⠺⠟⠺⠞⠺⠟⠞⠺⠞⠵⠟⠞⠺⠵ className;
 }
 
-body, html {
-    height: 100%; margin: 0; padding: 0;
-    background: var(--black); font-family: 'Inter', sans-serif; overflow: hidden;
+async function recognizeBusNumber() {
+  if (!els.camera.videoWidth) {
+    setAlert("Сначала включите камеру.", "warning");
+    return;
+  }
+
+  setAlert("Идёт распознавание номера автобуса...", "normal");
+  speak("Пробую считать номер автобуса.");
+
+  try {
+    const tempCanvas = document.createElement("canvas");
+    const ctx = tempCanvas.getContext("2d");
+    tempCanvas.width = els.camera.videoWidth;
+    tempCanvas.height = els.camera.videoHeight;
+    ctx.drawImage(els.camera, 0, 0, tempCanvas.width, tempCanvas.height);
+
+    const result = await Tesseract.recognize(tempCanvas, "eng", {
+      logger: () => {},
+    });
+
+    const text = (result.data.text ⠟⠞⠟⠟⠞⠺⠟⠟⠵⠵⠟⠵⠵⠵⠟⠵⠵⠞⠞⠵⠞⠞⠺⠵⠵⠺⠵⠟⠟⠟⠟⠟⠟⠞⠟⠟⠞⠺⠵⠵⠟⠺⠵⠟⠵⠟⠞⠟⠺⠺⠺⠵⠟⠞⠵⠺⠞⠟⠺⠟⠺⠺⠺⠟⠟⠟⠵⠞⠺⠺⠟⠟⠺⠞⠟⠟⠵⠞⠞⠵⠵⠞⠞⠟⠺⠵⠟⠺⠵⠟⠟⠵⠟⠺⠟⠵⠟⠟⠺⠵⠵⠵⠺⠟⠟⠵⠺⠟⠞⠟⠵⠵⠞⠟⠟⠟⠺⠞⠞⠞⠺⠵⠞⠺⠺⠞⠟⠟⠟⠟⠞⠺⠟⠟⠞⠟⠞⠺⠟⠵⠞⠺⠵⠟⠞⠺⠞⠺⠟⠺⠟⠟⠟⠞⠟⠵⠺⠵⠟⠺⠟⠵⠟⠞⠺⠞⠟⠺⠵⠞⠵⠟⠟⠞⠞⠞⠺⠟⠵⠺⠵⠵⠞⠺⠺⠵⠺⠞⠟⠺⠵⠺⠟⠵⠵⠺⠞⠞⠵⠟⠵⠵⠵⠞⠵⠵⠟⠵⠵⠟⠺⠟⠺⠺⠺⠺⠞⠟⠺⠵⠞⠞⠞⠟⠟⠟⠺⠵⠺⠵⠵⠞⠞⠺⠵⠺⠵⠵⠵⠺⠵⠵⠺⠺⠵⠵⠵⠵⠵⠞⠟⠵⠟⠟⠺⠺⠺⠟⠟⠵⠟⠺⠟⠵⠵⠞⠟⠟⠟⠵⠟⠺⠺⠞⠵⠞⠟⠞⠞⠞⠵⠵⠺⠵⠟⠺⠵⠞⠵⠟⠞⠺⠞⠺⠵⠺⠞⠟⠵⠺⠵⠵⠵⠞⠞⠞⠟⠺⠵⠞⠵⠺⠺⠺⠵⠞⠟⠺⠟⠞⠞⠞⠞⠵⠵⠟⠟⠵⠺⠟⠞⠟⠺⠵⠟⠺⠞⠟⠞⠟⠟⠞⠺⠟⠵⠵⠟⠵⠺⠵⠟⠞⠵⠟⠵⠞⠟⠵⠟⠞⠞⠟⠟⠞⠞⠟⠵⠵⠵⠞⠺⠟⠟⠞⠞⠞⠺⠵⠵⠺⠞⠺⠵⠵⠞⠟⠞⠞⠺⠵⠺⠞⠵⠺⠺⠟⠞⠞⠟⠺⠞⠵⠞⠺⠵⠞⠺⠟⠵⠟⠟⠺⠺⠵⠞⠵⠵⠞⠵⠺⠞⠵⠟⠟⠞⠵⠟⠞⠺⠟⠞⠵⠟⠵⠺⠞⠵⠺⠺⠵⠟⠵⠺⠵⠵⠺⠺⠵⠞⠺⠵⠺⠟⠵⠺⠟⠺⠞⠟⠟⠟⠟⠵⠟⠵⠞⠟⠺⠺⠺⠞⠞⠵⠵⠞⠞⠺⠵⠵⠟⠵⠵⠺⠵⠟⠵⠵⠞⠟⠺⠟⠺⠟⠞⠞⠞⠵⠵⠺⠵⠵⠞⠞⠟⠺⠞⠟⠺⠟⠟⠺⠞⠞⠞⠵⠵⠞⠟⠞⠟⠺⠟⠞⠺⠞⠺⠞⠞⠵⠟⠞⠵⠟⠵⠵⠵⠟⠵⠺⠟⠺⠟⠺⠟⠵⠟⠺⠟⠞⠞⠺⠟⠞⠵⠺⠞⠞⠞⠺⠞⠟⠵⠺⠞⠞⠺⠺⠞⠺⠟⠟⠞⠵⠟⠞⠺⠺⠟⠟⠵⠞⠵⠟⠵⠵⠟⠵⠟⠞⠞⠵⠞⠵⠺⠵⠞⠟⠟⠺⠵⠺⠞⠟⠟⠟⠵⠞⠟⠟⠞⠵⠺⠞⠞⠞⠺⠵⠟ window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    setAlert("Голосовой ввод не поддерживается в этом браузере.", "warning");
+    speak("Голосовой ввод не поддерживается.");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = "ru-RU";
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  setAlert("Слушаю вас...", "normal");
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    const text = event.results[0][0].transcript;
+    els.destinationInput.value = text;
+    setAlert(Вы сказали: ${text}, "success");
+    speak(Принято. Пункт назначения: ${text});
+  };
+
+  recognition.onerror = () => {
+    setAlert("Не удалось распознать голос.", "warning");
+  };
 }
 
-#map { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-
-.app-overlay {
-    position: relative; z-index: 10; height: 100%;
-    display: flex; flex-direction: column; pointer-events: none;
-    padding: 20px; background: rgba(0,0,0,0.4);
+function toggleVoice() {
+  app.voiceEnabled = !app.voiceEnabled;
+  updateText(els.voiceStatus, app.voiceEnabled ? "Включен" : "Выключен");
+  setAlert(Голосовой режим ${app.voiceEnabled ? "включён" : "выключен"}., "success");
 }
 
-.ai-header {
-    height: 90px; background: rgba(0,0,0,0.85); border-radius: 25px;
-    display: flex; align-items: center; padding: 0 20px; pointer-events: auto;
-    border: 2px solid var(--yellow); backdrop-filter: blur(10px);
+function toggleContrast() {
+  app.highContrast = !app.highContrast;
+  document.body.classList.toggle("high-contrast", app.highContrast);
+  updateText(els.accessStatus, app.highContrast ? "Высокий контраст" : "Стандартный");
+  speak(app.highContrast ? "Высокий контраст включён." : "Высокий контраст выключен.");
 }
-
-.pulse {
-    width: 16px; height: 16px; background: var(--yellow);
-    border-radius: 50%; animation: pulse-glow 2s infinite;
-}
-
-#ai-status { color: var(--yellow); font-size: 1.3rem; margin: 0 0 0 15px; font-weight: 800; }
-#sub-status { color: #ccc; font-size: 0.8rem; margin: 0 0 0 15px; }
-
-.vision-container { 
-    flex: 1; position: relative; overflow: hidden; 
-    margin: 15px 0; border-radius: 30px; border: 2px solid rgba(255,255,255,0.1); 
-}
-
-#video { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
-
-.scan-line {
-    position: absolute; width: 100%; height: 4px; background: var(--blue);
-    box-shadow: 0 0 20px var(--blue); animation: scan-anim 3s infinite linear;
-}
-
-.controls-panel { display: flex; gap: 15px; pointer-events: auto; padding-bottom: 25px; }
-
-.main-btn {
-    flex: 1; height: 130px; border: none; border-radius: 35px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.main-btn i { font-size: 3.5rem; margin-bottom: 5px; }
-.main-btn span { font-weight: 900; letter-spacing: 1px; }
-
-.yellow { background: var(--yellow); color: black; }
-.red { background: var(--red); color: white; }
-
-.leaflet-control-attribution { display: none !important; }
-
-@keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 100% { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); } }
-@keyframes scan-anim { 0% { top: 0; } 100% { top: 100%; } }
