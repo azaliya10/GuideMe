@@ -1,7 +1,10 @@
-let map, directionsService, directionsRenderer, model;
+let map, model, userMarker;
 const aiStatus = document.getElementById('ai-status');
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 
-// 1. ГОЛОСОВОЕ УПРАВЛЕНИЕ
+// 1. ГОЛОСОВОЙ ПОМОЩНИК
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 recognition.lang = 'ru-RU';
 
@@ -13,77 +16,114 @@ function speak(text) {
     aiStatus.innerText = text;
 }
 
-// 2. ЗРЕНИЕ ИИ (Глаза GuideMe)
-async function initGuideMeVision() {
-    model = await cocoSsd.load();
-    detectFrame();
+// 2. БЕСПЛАТНАЯ КАРТА
+function initMap() {
+    map = L.map('map', { zoomControl: false }).setView([42.8747, 74.6122], 16);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    userMarker = L.circleMarker([42.8747, 74.6122], { radius: 10, color: '#FFD700', fillColor: '#007AFF', fillOpacity: 1 }).addTo(map);
 }
 
-async function detectFrame() {
-    const video = document.getElementById('video');
+// 3. ЗРЕНИЕ И СВЕТОФОР
+async function initVision() {
+    model = await cocoSsd.load();
+    detectLoop();
+}
+
+async function detectLoop() {
     if (model && video.readyState === 4) {
         const predictions = await model.detect(video);
+        
         predictions.forEach(p => {
-            // Реагируем только на важные объекты
-            if (p.score > 0.6 && ['car', 'person', 'bus', 'bicycle', 'traffic light'].includes(p.class)) {
-                navigator.vibrate([200, 100, 200]);
-                const labels = { 'car': 'машина', 'person': 'человек', 'bus': 'автобус', 'bicycle': 'велосипед', 'traffic light': 'светофор' };
-                speak("Впереди " + (labels[p.class] || "объект"));
+            if (p.score > 0.6) {
+                // Если ИИ увидел светофор
+                if (p.class === 'traffic light') {
+                    const color = analyzeTrafficLightColor(p.bbox);
+                    if (color === 'red') {
+                        navigator.vibrate([400, 100, 400]);
+                        speak("Впереди светофор. Горит красный. Остановитесь.");
+                    } else if (color === 'green') {
+                        speak("Светофор зеленый. Можно переходить.");
+                    }
+                } 
+                // Другие объекты
+                else if (['car', 'bus'].includes(p.class)) {
+                    navigator.vibrate(500);
+                    speak("Осторожно, машина.");
+                } else if (p.class === 'person') {
+                    navigator.vibrate(100);
+                    speak("Впереди пешеход.");
+                }
             }
         });
     }
-    requestAnimationFrame(detectFrame);
+    requestAnimationFrame(detectLoop);
 }
 
-// 3. ПЕШЕХОДНАЯ НАВИГАЦИЯ
-function initMap() {
-    directionsService = new google.maps.DirectionsService();
-    directionsRenderer = new google.maps.DirectionsRenderer({
-        polylineOptions: { strokeColor: "#FFD700", strokeWeight: 10 }
-    });
-    
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 42.87, lng: 74.6 }, zoom: 17, disableDefaultUI: true
-    });
-    directionsRenderer.setMap(map);
+// Функция анализа цвета внутри рамки светофора
+function analyzeTrafficLightColor(bbox) {
+    const [x, y, width, height] = bbox;
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0);
+
+    // Берем пиксели из области, где ИИ нашел светофор
+    const imageData = ctx.getImageData(x, y, width, height).data;
+    let redCount = 0;
+    let greenCount = 0;
+
+    for (let i = 0; i < imageData.length; i += 4) {
+        const r = imageData[i];
+        const g = imageData[i+1];
+        const b = imageData[i+2];
+
+        if (r > 150 && g < 100 && b < 100) redCount++;
+        if (g > 150 && r < 100 && b < 150) greenCount++;
+    }
+
+    if (redCount > greenCount && redCount > 20) return 'red';
+    if (greenCount > redCount && greenCount > 20) return 'green';
+    return 'unknown';
 }
 
-function findPedestrianPath(destination) {
-    navigator.geolocation.getCurrentPosition(pos => {
-        const request = {
-            origin: { lat: pos.coords.latitude, lng: pos.coords.longitude },
-            destination: destination,
-            travelMode: google.maps.TravelMode.WALKING // СТРОГО ПЕШЕХОДНЫЙ МАРШРУТ
-        };
+// 4. ПЕШЕХОДНАЯ НАВИГАЦИЯ
+async function findPath(destination) {
+    speak("Ищу путь в " + destination);
+    const geoUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${destination},Бишкек`;
+    const geoRes = await fetch(geoUrl);
+    const geoData = await geoRes.json();
 
-        directionsService.route(request, (res, status) => {
-            if (status === 'OK') {
-                directionsRenderer.setDirections(res);
-                const info = res.routes[0].legs[0];
-                speak(`Путь в ${destination} найден. Идти ${info.duration.text}. Я буду вести вас.`);
-            } else {
-                speak("Извините, пешеходный путь не найден.");
+    if (geoData.length > 0) {
+        navigator.geolocation.getCurrentPosition(async (pos) => {
+            const start = [pos.coords.longitude, pos.coords.latitude];
+            const end = [geoData[0].lon, geoData[0].lat];
+            const routeUrl = `https://router.project-osrm.org/route/v1/foot/${start[0]},${start[1]};${end[0]},${end[1]}?overview=full&geometries=geojson`;
+            const routeRes = await fetch(routeUrl);
+            const routeData = await routeRes.json();
+
+            if (routeData.routes.length > 0) {
+                if (window.routeLine) map.removeLayer(window.routeLine);
+                window.routeLine = L.geoJSON(routeData.routes[0].geometry, { style: { color: '#FFD700', weight: 8 } }).addTo(map);
+                map.fitBounds(window.routeLine.getBounds());
+                speak("Путь найден. Следуйте по маршруту.");
             }
         });
-    });
+    } else {
+        speak("Место не найдено.");
+    }
 }
 
-// 4. УПРАВЛЕНИЕ КНОПКАМИ
+// УПРАВЛЕНИЕ
 document.getElementById('btn-ai').onclick = () => {
     navigator.vibrate(50);
     speak("Куда вы хотите пойти?");
     recognition.start();
 };
 
-recognition.onresult = (e) => {
-    const address = e.results[0][0].transcript;
-    findPedestrianPath(address);
-};
+recognition.onresult = (e) => findPath(e.results[0][0].transcript);
 
-// ЗАПУСК ПРИЛОЖЕНИЯ
 window.onload = async () => {
     initMap();
     const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
-    document.getElementById('video').srcObject = stream;
-    await initGuideMeVision();
+    video.srcObject = stream;
+    await initVision();
 };
