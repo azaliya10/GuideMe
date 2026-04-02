@@ -1,48 +1,202 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>GuideMe AI | Smart Vision</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GuideMe — Безопасная навигация для незрячих людей</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
-    <div id="map"></div>
+  <header class="hero">
+    <div class="hero__badge">Technovation-style MVP • Kyrgyzstan • Accessibility</div>
+    <h1>GuideMe</h1>
+    <p class="hero__subtitle">
+      Умный веб-сервис для незрячих и слабовидящих людей: камера, голосовые предупреждения,
+      безопасный пешеходный маршрут по Бишкеку и помощь с автобусами.
+    </p>
 
-    <div class="app-overlay">
-        <header class="ai-header">
-            <div class="status-indicator"><div class="pulse"></div></div>
-            <div class="text-container">
-                <h1 id="ai-status">GuideMe: Система активна</h1>
-                <p id="sub-status">Голос и Зрение включены</p>
-            </div>
-        </header>
-
-        <main class="vision-container">
-            <video id="video" autoplay playsinline muted></video>
-            <canvas id="canvas" style="display:none;"></canvas> <div class="scan-line"></div>
-        </main>
-
-        <footer class="controls-panel">
-            <button id="btn-ai" class="main-btn yellow">
-                <i class="material-icons">mic</i>
-                <span>КУДА ИДЕМ?</span>
-            </button>
-            <button id="btn-sos" class="main-btn red">
-                <i class="material-icons">emergency</i>
-                <span>SOS</span>
-            </button>
-        </footer>
+    <div class="hero__actions">
+      <button class="btn btn--primary" id="startGuideBtn">Запустить GuideMe</button>
+      <button class="btn btn--ghost" id="speakAboutBtn">Озвучить описание</button>
     </div>
 
-    <script src="script.js"></script>
+    <div class="status-grid">
+      <article class="status-card">
+        <span class="status-card__label">AI-камера</span>
+        <strong id="aiStatus">Не запущена</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-card__label">GPS / Геолокация</span>
+        <strong id="gpsStatus">Ожидание</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-card__label">Голосовой режим</span>
+        <strong id="voiceStatus">Включен</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-card__label">Режим доступа</span>
+        <strong id="accessStatus">Стандартный</strong>
+      </article>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel panel--camera">
+      <div class="panel__head">
+        <div>
+          <h2>AI-камера и предупреждения</h2>
+          <p>Сайт анализирует изображение с камеры телефона и предупреждает о препятствиях голосом.</p>
+        </div>
+        <span class="pill">Live Demo</span>
+      </div>
+
+      <div class="camera-wrap">
+        <video id="camera" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+
+        <div class="camera-hud">
+          <div class="camera-hud__item">Режим: улица</div>
+          <div class="camera-hud__item" id="cameraModeText">Камера выключена</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn--primary" id="startCameraBtn">Включить камеру</button>
+        <button class="btn" id="detectBtn">Проверить обстановку</button>
+        <button class="btn" id="ocrBtn">Считать номер автобуса</button>
+        <button class="btn btn--ghost" id="demoHazardBtn">Демо-опасность</button>
+      </div>
+
+      <div class="alert-box" id="alertBox">
+        GuideMe готов. Нажмите «Включить камеру».
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <div>
+          <h2>Безопасный маршрут по Бишкеку</h2>
+          <p>Введите место назначения или скажите его голосом. GuideMe построит пешеходный маршрут и озвучит шаги.</p>
+        </div>
+        <span class="pill pill--green">Bishkek Map</span>
+      </div>
+
+      <div class="route-form">
+        <label class="input-wrap">
+          <span>Куда вам нужно?</span>
+          <input
+            id="destinationInput"
+            type="text"
+            placeholder="Например: Osh Bazaar Bishkek"
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="route-form__buttons">
+          <button class="btn" id="voiceInputBtn">Голосовой ввод</button>
+          <button class="btn btn--primary" id="buildRouteBtn">Построить маршрут</button>
+        </div>
+      </div>
+
+      <div id="map"></div>
+
+      <div class="route-summary" id="routeSummary">
+        Маршрут пока не построен.
+      </div>
+<ol class="steps" id="routeSteps">
+        <li>Здесь появятся пошаговые инструкции.</li>
+      </ol>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <div>
+          <h2>Помощник с автобусами</h2>
+          <p>GuideMe может предупредить, когда автобус приближается, и озвучить, когда готовиться к выходу.</p>
+        </div>
+        <span class="pill pill--blue">Transport Demo</span>
+      </div>
+
+      <div class="bus-box">
+        <label class="input-wrap">
+          <span>Номер автобуса</span>
+          <input id="busNumberInput" type="text" placeholder="Например: 212" />
+        </label>
+
+        <div class="controls">
+          <button class="btn btn--primary" id="simulateBusBtn">Запустить локатор автобуса</button>
+          <button class="btn" id="nextStopBtn">Следующая остановка</button>
+        </div>
+
+        <div class="progress">
+          <div class="progress__bar" id="busProgress"></div>
+        </div>
+
+        <div class="bus-status" id="busStatus">
+          Локатор автобуса не запущен.
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <div>
+          <h2>Настройки доступности</h2>
+          <p>Сделано для удобства незрячих, слабовидящих людей и демонстрации на конкурсе.</p>
+        </div>
+        <span class="pill pill--purple">Accessibility</span>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="toggleVoiceBtn">Вкл / выкл голос</button>
+        <button class="btn" id="toggleContrastBtn">Высокий контраст</button>
+        <button class="btn" id="toggleTextBtn">Крупный текст</button>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <h3>Что уже умеет MVP</h3>
+          <ul>
+            <li>Распознаёт людей, машины, автобусы, светофоры, велосипеды.</li>
+            <li>Озвучивает угрозы и важные объекты.</li>
+            <li>Строит пешеходный маршрут по карте.</li>
+            <li>Поддерживает голосовой ввод и озвучку шагов.</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Идея для финальной версии</h3>
+          <ul>
+            <li>Реальный режим безопасного маршрута с городскими данными.</li>
+            <li>Точная проверка цвета светофора и переходов.</li>
+            <li>Интеграция с транспортными API Бишкека.</li>
+            <li>Офлайн-режим для слабого интернета.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>GuideMe • MVP для социального стартапа в Кыргызстане</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
