@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>GuideMe AI | Твой путь</title>
+    <title>GuideMe AI | Smart Vision</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -19,28 +21,28 @@
         <header class="ai-header">
             <div class="status-indicator"><div class="pulse"></div></div>
             <div class="text-container">
-                <h1 id="ai-status">GuideMe: Слушаю...</h1>
+                <h1 id="ai-status">GuideMe: Система активна</h1>
+                <p id="sub-status">Голос и Зрение включены</p>
             </div>
         </header>
 
         <main class="vision-container">
             <video id="video" autoplay playsinline muted></video>
-            <div class="scan-line"></div>
+            <canvas id="canvas" style="display:none;"></canvas> <div class="scan-line"></div>
         </main>
 
         <footer class="controls-panel">
-            <button id="btn-ai" class="main-btn yellow" aria-label="Голосовой ввод">
+            <button id="btn-ai" class="main-btn yellow">
                 <i class="material-icons">mic</i>
                 <span>КУДА ИДЕМ?</span>
             </button>
-            <button id="btn-sos" class="main-btn red" aria-label="Экстренная помощь">
+            <button id="btn-sos" class="main-btn red">
                 <i class="material-icons">emergency</i>
                 <span>SOS</span>
             </button>
         </footer>
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places,geometry&language=ru"></script>
     <script src="script.js"></script>
 </body>
 </html>
